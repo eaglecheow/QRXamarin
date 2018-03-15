@@ -20,9 +20,10 @@
         <Label Text=""></Label>
         <Grid HeightRequest="200">
             <qrcode:ZXingBarcodeImageView x:Name="QRCode" 
-                                          HeightRequest="200"
+                                          HeightRequest="100"
                                           BarcodeFormat="QR_CODE" 
-                                          BarcodeValue="Hello World"/>
+                                          BarcodeValue="Hello World"
+                                          BarcodeOptions ="{Binding BarcodeOption}"/>
         </Grid>
 
     </StackLayout>

@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ZXing.Common;
 using ZXing.Net.Mobile.Forms;
 using ZXing.QrCode;
+using ZXing.QrCode.Internal;
 
 namespace QRXamarin
 {
 	public partial class MainPage : ContentPage
 	{
-	    public QrCodeEncodingOptions QROptions { get; set; }
+	    
 
-		public MainPage()
+        public MainPage()
 		{
 			InitializeComponent();
+		    BindingContext = new ViewModel();
 		}
 
 	    private async void Button_OnClicked(object sender, EventArgs e)
 	    {
+	        Debug.WriteLine("Im here");
 	        var scannerPage = new ZXingScannerPage();
 	        await Navigation.PushAsync(scannerPage);
 
@@ -33,11 +38,6 @@ namespace QRXamarin
 	            });
 	        };
 
-            QRCode.BarcodeOptions = new QrCodeEncodingOptions()
-            {
-                Height = 500,
-                Width = 500
-            };
 	    }
 
 	}
